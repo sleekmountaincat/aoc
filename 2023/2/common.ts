@@ -16,6 +16,18 @@ export class CubeGame {
         return this._id;
     }
 
+    get maxKnownRed(): number {
+        return this._maxKnownRed;
+    }
+
+    get maxKnownGreen(): number {
+        return this._maxKnownGreen;
+    }
+
+    get maxKnownBlue(): number {
+        return this._maxKnownBlue;
+    }
+
     isGameValidForBag(bag: BagDraw): boolean {
         return this._maxKnownRed <= bag.red && this._maxKnownBlue <= bag.blue && this._maxKnownGreen <= bag.green
     }
