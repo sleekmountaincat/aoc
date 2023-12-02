@@ -16,8 +16,8 @@ export class CubeGame {
         return this._id;
     }
 
-    isDrawValid(bagDraw: BagDraw): boolean {
-        return bagDraw.red <= this._maxKnownRed && bagDraw.blue <= this._maxKnownBlue && bagDraw.green <= this._maxKnownGreen
+    isGameValidForBag(bag: BagDraw): boolean {
+        return this._maxKnownRed <= bag.red && this._maxKnownBlue <= bag.blue && this._maxKnownGreen <= bag.green
     }
 
     print() {

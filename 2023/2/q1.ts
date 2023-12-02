@@ -15,11 +15,11 @@ while (line = lines.next()) {
     allGames.push(new CubeGame(parseInt(gameId!), bagDraws))
 }
 
-let testDraw: BagDraw = {red: 12, green: 13, blue: 14}
+let testBag: BagDraw = {red: 12, green: 13, blue: 14}
 
 let sumOfValidGameIds = allGames.reduce(
     (acc, cur) => {
-        return acc + (cur.isDrawValid(testDraw) ? cur.id : 0)
+        return acc + (cur.isGameValidForBag(testBag) ? cur.id : 0)
     },
     0,
 );
