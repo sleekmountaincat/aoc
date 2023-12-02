@@ -1,0 +1,26 @@
+{
+  "name": "@sleekmountaincat/aoc",
+  "version": "1.0.0",
+  "description": "advent of code",
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sleekmountaincat/aoc"
+  },
+  "scripts": {
+    "eslint": "eslint ."
+  },
+  "dependencies": {
+    "n-readlines": "^1.0.1"
+  },
+  "devDependencies": {
+    "@types/n-readlines": "^1.0.6",
+    "@types/node": "^14.17.4",
+    "@typescript-eslint/eslint-plugin": "^5.15.0",
+    "@typescript-eslint/parser": "^5.15.0",
+    "eslint": "^8.11.0",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.2"
+  }
+}
