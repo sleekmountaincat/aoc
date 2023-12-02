@@ -1,6 +1,6 @@
 import nReadlines from 'n-readlines';
 
-const lines = new nReadlines('2023/1/q1input.txt');
+const lines = new nReadlines('2023/1/input.txt');
 
 let line;
 let sum = 0;
