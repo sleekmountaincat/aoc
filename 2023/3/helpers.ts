@@ -37,6 +37,10 @@ export function isSymbolAdjacent(engine: string[], maybePartNumber: PartNumber) 
 
     for (let r = Math.max(0, maybePartNumber.row - 1); r <= Math.min(rows, maybePartNumber.row + 1); r++){
         for(let c = Math.max(0, maybePartNumber.start - 1); c <= Math.min(cols, maybePartNumber.end + 1); c++) {
+            if (engine[r][c] == "*") {
+                maybePartNumber.gearIndex = `${r},${c}`
+            }
+
             if (engine[r][c].match(/[0-9.]/) == null) return true
         }
     }
@@ -49,4 +53,5 @@ export interface PartNumber {
     start: number
     end: number
     value: number
+    gearIndex?: string
 }

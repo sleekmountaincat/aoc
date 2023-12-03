@@ -14,7 +14,7 @@ let sumOfPartNumbers = partNumbers.reduce(
         return acc + (cur.value)
     },
     0,
-);
+)
 
 console.log(sumOfPartNumbers)
 
