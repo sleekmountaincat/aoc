@@ -1,4 +1,3 @@
-import LineByLine from "n-readlines";
 import nReadlines from "n-readlines";
 
 export function parseInput(file: string): string[] {
