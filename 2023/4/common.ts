@@ -29,9 +29,11 @@ export function importScratchersFromFile(file: string): Scratcher[] {
 
 export class Scratcher {
     score: number
+    winners: number
 
-    constructor(private id: number, private winningNumbers: number[], private scratcherNumbers: number[]) {
+    constructor(public id: number, public winningNumbers: number[], public scratcherNumbers: number[]) {
         this.score = this.calculateScore()
+        this.winners = this.calculateWinners()
     }
 
     private calculateScore() {
@@ -39,8 +41,13 @@ export class Scratcher {
             (this.scratcherNumbers.includes(cur) ? (acc === 0 ? 1 : 2 * acc) : acc), 0)
     }
 
+    private calculateWinners() {
+        return this.winningNumbers.reduce((acc, cur) =>
+            acc + (this.scratcherNumbers.includes(cur) ? 1 : 0), 0)
+    }
+
     print() {
-        console.log(`ID: ${this.id}, Score: ${this.score}`)
+        console.log(`ID: ${this.id}, Score: ${this.score}, Winners: ${this.winners}`)
     }
 }
 
