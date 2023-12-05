@@ -26,7 +26,6 @@ for (let i in almanac) {
 
 let locations = seeds.map(seed => {
     return maps.reduce((a,c) => {
-        // console.log(`seed: ${seed}, a: ${a}, c.get: ${c.get(a)}`)
         return c.getOutput(a) ?? a
     }, seed)
 })
