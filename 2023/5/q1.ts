@@ -25,7 +25,7 @@ for (let i in almanac) {
 }
 
 let locations = seeds.map(seed => {
-    return maps.reduce((a,c) => {
+    return maps.reduce((a, c) => {
         return c.getOutput(a) ?? a
     }, seed)
 })
