@@ -4,16 +4,11 @@ const input = fs.readFileSync('2023/6/input.txt').toString().split("\n");
 const maxTime = [...input.shift()!.replace(/[\s]+/g, "").matchAll(/[0-9]+/g)!].map(s => parseInt(s[0]))
 const minDist = [...input.shift()!.replace(/[\s]+/g, "").matchAll(/[0-9]+/g)!].map(s => parseInt(s[0]))
 
-let count: number[] = []
 
-for (let m = 0; m < maxTime.length; m++) {
-    let winCount = 0
-    for (let x = 0; x < maxTime[m]; x++) {
-        if (((maxTime[m] - x) * x) > minDist[m]) winCount++
-    }
-    count.push(winCount)
+let winCount = 0
+
+for (let x = 0; x < maxTime[0]; x++) {
+    if (((maxTime[0] - x) * x) > minDist[0]) winCount++
 }
 
-count.reduce((a, c) => a * c!)
-
-console.log(count.reduce((a, c) => a * c!))
+console.log(winCount)
