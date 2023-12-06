@@ -4,7 +4,7 @@ import {AlmanacMap} from "./common";
 const almanac = fs.readFileSync('2023/5/input.txt').toString().split("\n");
 const seeds = [...almanac.shift()!.matchAll(/[0-9]+/g)!].map(s => parseInt(s[0]))
 
-const maps: AlmanacMap[] = []
+let maps: AlmanacMap[] = []
 
 let numMaps = -1
 
@@ -24,17 +24,28 @@ for (let i in almanac) {
     maps[numMaps].addRange(destStart, sourceStart, length)
 }
 
-let lowest: number = Number.POSITIVE_INFINITY
-
-for (let x = 0; x < seeds.length; x+=2) {
-    console.log(`seed: ${seeds[x]}`)
-    for(let y= seeds[x]; y < seeds[x]+seeds[x+1]; y++) {
-        let loc = maps.reduce((a,c) => {
-                // console.log(`seed: ${seed}, a: ${a}, c.get: ${c.get(a)}`)
-                return c.getOutput(a) ?? a
-            }, y)
-        if (loc < lowest) lowest = loc
+function isSeed(maybeSeed: number): boolean {
+    for (let x = 0; x < seeds.length; x+=2) {
+        if (maybeSeed >= seeds[x] && maybeSeed < seeds[x]+seeds[x+1]) return true
     }
+    return false
 }
 
-console.log(lowest)
+// maps = [...maps.reverse()]
+
+maps.forEach(m=>{
+    m.reverseMaps()
+})
+
+let x = 0
+while(1) {
+    let seed = maps.reduce((a,c) => {
+        return c.getOutput(a) ?? a
+    }, x)
+
+    if (isSeed(seed)) {
+        console.log(seed)
+        break
+    }
+    x++
+}

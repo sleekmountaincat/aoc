@@ -19,4 +19,8 @@ export class AlmanacMap {
             return input >= c.sourceStart && input < c.sourceStart + c.length ? (input - c.sourceStart) + c.destStart : a
         }, input)
     }
+
+    public reverseMaps() {
+        this.mapRanges = [...this.mapRanges.reverse()]
+    }
 }
