@@ -7,12 +7,11 @@ const rankValues: Map<string, number> = new Map([['A', 0], ['K', 1], ['Q', 2], [
 interface CamelHand {
     hand: string
     bet: number
-    value: number
 }
 
 let hands: CamelHand[] = input.map(l => {
     let [hand, bet] = l.split(" ")
-    return {hand, bet: parseInt(bet), value: getHandVal()}
+    return {hand, bet: parseInt(bet)}
 })
 
 function getHandVal(counts: Map<string, number>): number {
