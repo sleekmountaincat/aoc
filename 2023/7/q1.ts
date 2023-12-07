@@ -48,10 +48,10 @@ hands.sort((x, y) => {
     else return tieWinner
 })
 
-let sum= 0
+let sum = 0
 
 for (let i = 0; i < hands.length; i++) {
-    sum += hands[i].bet * (i+1)
+    sum += hands[i].bet * (i + 1)
 }
 
 console.log(sum)
