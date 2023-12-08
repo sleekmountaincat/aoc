@@ -1,6 +1,6 @@
 import fs from 'fs';
 
-const input = fs.readFileSync('2023/7/input.txt').toString().split("\n");
+const input = fs.readFileSync('2023/7/inputtest.txt').toString().split("\n");
 
 const rankValues: Map<string, number> = new Map([['A', 0], ['K', 1], ['Q', 2], ['T', 3], ['9', 4], ['8', 5], ['7', 6], ['6', 7], ['5', 8], ['4', 9], ['3', 10], ['2', 11], ['J', 12]])
 
