@@ -20,8 +20,7 @@ let currentPoint = konamiCode[0] === "L" ? desertMap.get("AAA")!.L : desertMap.g
 let steps = 1
 
 do {
-    let dest = desertMap.get(currentPoint)!
-    currentPoint = konamiCode[steps % konamiCode.length] === "L" ? dest.L : dest.R
+    currentPoint = konamiCode[steps % konamiCode.length] === "L" ? desertMap.get(currentPoint)!.L : desertMap.get(currentPoint)!.R
     steps++
 } while (currentPoint != "ZZZ")
 
