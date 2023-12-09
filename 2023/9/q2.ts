@@ -15,16 +15,14 @@ const addem = (seq: number[]): number => seq.reduce((a, c) => a+c)
 const deaddem = (seq: number[]): number => seq.reduce((a, c) => c-a)
 
 let sum = addem(input.map(seq => {
-    let last: number[] = []
+    let first: number[] = []
 
     do {
-        last.push((seq[0]))
+        first.push((seq[0]))
         seq = adif(seq)
     } while (!seq.every(n => n === 0))
 
-    last = last.reverse()
-
-    return deaddem(last)
+    return deaddem(first.reverse())
 }))
 
 console.log(sum)
