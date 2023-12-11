@@ -3,7 +3,7 @@ import fs from 'fs';
 const map: string[][] = []
 let start = [0, 0]
 
-fs.readFileSync('2023/10/inputtest.txt')
+fs.readFileSync('2023/10/input.txt')
     .toString()
     .split("\n")
     .forEach((l, x) => {
@@ -26,7 +26,9 @@ let down = ["|", "L", "J"]
 let left = ["-", "F", "L"]
 let right = ["-", "7", "J"]
 let prev;
-let loopPoints: string[][] = map.map(r => r.map(c => ''))
+let loopPoints: string[][] = map.map(r => r.map(c => ""))
+
+loopPoints[pos[0]][pos[1]] = "S"
 
 if (pos[0] > 0 && up.includes(map[pos[0] - 1][pos[1]])) {
     pos[0]--
@@ -105,34 +107,23 @@ do {
     console.log(`at: ${pos[0]},${pos[1]} = ${map[pos[0]][pos[1]]}`)
 } while (map[pos[0]][pos[1]] != "S")
 
-console.table(loopPoints)
-
 let countEnclosed = 0
 for (let x = 0; x < r; x++) {
-    let amInside = false
     for (let y = 0; y < c; y++) {
-        let cell = map[x][y]
+        let intersectCount = 0
 
-        if (cell === "|") {
-            amInside
+        if (loopPoints[x][y] == "" && (y+1 < c)) {
+            for (let z = y+1; z < c; z++) {
+                // either include or exclude "S" to count as barrier, need to replace it with correct tile based on exit and enter
+                intersectCount += ["|","7","F"].includes(loopPoints[x][z]) ? 1 : 0
+            }
         }
 
-        // let intersectCount = 0
-
-        // if (!loopPoints[x][y] && y+1 < c) {
-        //     for (let z = y+1; z < c; z++) {
-        //         intersectCount += loopPoints[x][z]
-        //     }
-        // }
-        //
-        // if (intersectCount % 2) {
-        //     countEnclosed++
-        //     loopPoints[x][y] = 9
-        // }
+        if (intersectCount % 2) {
+            countEnclosed++
+            loopPoints[x][y] = "X"
+        }
     }
 }
 
-// console.table(loopPoints)
-
-
-// console.log(c)
+console.log(countEnclosed)
