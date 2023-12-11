@@ -22,7 +22,7 @@ for (let y = 0; y < universe[0].length; y++) {
         if (universe[x][y] === "#") shouldExpand = false
     }
     if (shouldExpand) {
-        console.log("Expanding col", y + colOffset)
+        console.log("expanding col", y + colOffset)
         for (let z = 0; z < universe.length; z++) {
             expandedUniverse[z].splice(y + colOffset, 0, ".")
         }
@@ -36,7 +36,7 @@ for (let x = 0; x < universe.length; x++) {
         if (universe[x][y] === "#") shouldExpand = false
     }
     if (shouldExpand) {
-        console.log("Expanding row", x)
+        console.log("expanding row", x)
         expandedUniverse.splice(x + rowOffset, 0, Array(expandedUniverse[0].length).fill("."))
         rowOffset++
     }
