@@ -1,7 +1,5 @@
 import fs from 'fs'
 
-const combos: number[] = []
-
 // um maybe i am dumb but there is not an easy way to replace a char in a string?????
 function replace(str: string, c: string, idx: number) {
     let n = str.split("");
@@ -50,7 +48,6 @@ console.log(fs.readFileSync('2023/12/input.txt')
     .toString()
     .split("\n")
     .map(l => {
-        let numCombos = 0
         const [puzzle, keyStr] = l.split(" ")
         const key = keyStr.split(",").map(n => +n)
 
