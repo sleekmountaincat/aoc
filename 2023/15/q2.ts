@@ -30,9 +30,8 @@ fs.readFileSync('2023/15/input.txt')
         }
     })
 
-let ans = boxes.reduce((a, c, i) => {
+console.log(boxes.reduce((a, c, i) => {
     if (c && c.size) {
-        let lensMultiplier = 0
         let cnt = 1
         let total = 0
 
@@ -43,6 +42,4 @@ let ans = boxes.reduce((a, c, i) => {
         return a + total
     } else
         return a
-}, 0)
-
-console.log(ans)
+}, 0))
